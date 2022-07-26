@@ -10,8 +10,22 @@ class Education extends Component {
 
     render() {
         return (
-            <div className="education">
-                Education
+            <div className="Education">
+                <div className='Title'>Education</div>
+                <form className='EducationForm'>
+                 <div>
+                    <label htmlFor='uni'>University</label>
+                    <input type='text' id='uni' placeholder="University, college or course"/>
+                 </div>  
+                 <div>  
+                    <label htmlFor='degree'>Degree</label>
+                    <input type='text' id='degree' placeholder="degree"/>
+                 </div>
+                 <div>
+                    <label htmlFor='gradDate'>Finish Date</label>
+                    <input type='text' id='gradDate' placeholder="Past or posible future date"/>
+                 </div>
+                </form>
             </div>
         )
     }
