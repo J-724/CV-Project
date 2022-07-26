@@ -40,6 +40,7 @@ module.exports = {
                 outputPath: 'assets',
                 publicPath: 'assets',
             }
+            
         }
       },
       {
