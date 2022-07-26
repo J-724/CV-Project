@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import Education from "./Education";
-import Experience from "./Experience";
-import PersonalInfo from "./PersonalInfo";
+import Education from "./Education.js";
+import Experience from "./Experience.js";
+import PersonalInfo from "./PersonalInfo.js";
 
 class CVBuilder extends Component {
   render() {
