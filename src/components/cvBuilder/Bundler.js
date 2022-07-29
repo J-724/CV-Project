@@ -6,11 +6,11 @@ import PersonalInfo from "./PersonalInfo.js";
 class CVBuilder extends Component {
   render() {
     return (
-      <>
+      <div className="builder">
         <PersonalInfo />
         <Education />
         <Experience />
-      </>
+      </div>
     );
   }
 }

@@ -18,8 +18,8 @@ class Experience extends Component {
                     <input type='text' id='company' placeholder="Company or Organization"/>
                  </div>  
                  <div>  
-                    <label htmlFor='jobTitle'>Jon Tittle</label>
-                    <input type='text' id='jobTittle' placeholder="Job Title"/>
+                    <label htmlFor='jobTitle'>Position</label>
+                    <input type='text' id='jobTittle' placeholder="Postion"/>
                  </div>
                  <div>
                     <label htmlFor='startDate'>Start Date</label>

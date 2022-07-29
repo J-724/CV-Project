@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
     clean: true,
-    assetModuleFilename: '[name][ext]',
+    // assetModuleFilename: '[name][ext]',
   },
   devtool: 'source-map',
   module: {
