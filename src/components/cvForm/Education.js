@@ -20,7 +20,7 @@ class Education extends Component {
                     value={this.props.degree}
                     placeholder='Degree'
                     name='Degree'
-                    onChange={this.props.onChange()}
+                    onChange={(e) => this.props.onChange(e)}
                 />
                 <TextInput
                     divId={`div-${this.props.id}`}
@@ -28,7 +28,7 @@ class Education extends Component {
                     value={this.props.degree}
                     placeholder='University'
                     name='University'
-                    onChange={this.props.onChange()}
+                    onChange={(e) => this.props.onChange(e)}
                 />
                 <TextInput
                    divId={`div-${this.props.id}`}
@@ -36,7 +36,7 @@ class Education extends Component {
                    value={this.props.degree}
                    placeholder='Start'
                    name='Start'
-                   onChange={this.props.onChange()}
+                   onChange={(e) => this.props.onChange(e)}
                 />
                 <TextInput
                     divId={`div-${this.props.id}`}
@@ -44,7 +44,7 @@ class Education extends Component {
                     value={this.props.degree}
                     placeholder='End'
                     name='End'
-                    onChange={this.props.onChange()}
+                    onChange={(e) => this.props.onChange(e)}
                 />
                 <TextArea
                     divId={`div-${this.props.id}`}
@@ -52,8 +52,10 @@ class Education extends Component {
                     value={this.props.degree}
                     placeholder='Write some details about'
                     name='About'
-                    onChange={this.props.onChange()}
-                /> 
+                    onChange={(e) => this.props.onChange(e)}
+                />
+
+                ADD buttons to add and remove education 
             </div>
         )
     }

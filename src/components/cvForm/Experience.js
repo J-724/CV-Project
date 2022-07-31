@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import TextInput from './TextInput';
+import TextArea from './TextArea';
 
 class Experience extends Component {
     constructor(props) {
@@ -11,25 +13,48 @@ class Experience extends Component {
     render() {
         return (
             <div className="Experience">
-                <div className='Title'>Experiences</div>
-                <form className='ExperienceForm'>
-                 <div>
-                    <label htmlFor='company'>Company or Organization</label>
-                    <input type='text' id='company' placeholder="Company or Organization"/>
-                 </div>  
-                 <div>  
-                    <label htmlFor='jobTitle'>Position</label>
-                    <input type='text' id='jobTittle' placeholder="Postion"/>
-                 </div>
-                 <div>
-                    <label htmlFor='startDate'>Start Date</label>
-                    <input type='text' id='startDate' placeholder="First day at Job"/>
-                 </div>
-                 <div>
-                    <label htmlFor='finishDate'>Finish Date</label>
-                    <input type='text' id='finishDate' placeholder="Last day at Job"/>
-                 </div>
-                </form>
+                <TextInput
+                    divId={`div-${this.props.id}`}
+                    id={this.props.id}
+                    value={this.props.degree}
+                    placeholder='Position'
+                    name='Position'
+                    onChange={(e) => this.props.onChange(e)}
+                />
+                <TextInput
+                    divId={`div-${this.props.id}`}
+                    id={this.props.id}
+                    value={this.props.degree}
+                    placeholder='Company'
+                    name='Company'
+                    onChange={(e) => this.props.onChange(e)}
+                />
+                <TextInput
+                   divId={`div-${this.props.id}`}
+                   id={this.props.id}
+                   value={this.props.degree}
+                   placeholder='Start'
+                   name='Start'
+                   onChange={(e) => this.props.onChange(e)}
+                />
+                <TextInput
+                    divId={`div-${this.props.id}`}
+                    id={this.props.id}
+                    value={this.props.degree}
+                    placeholder='End'
+                    name='End'
+                    onChange={(e) => this.props.onChange(e)}
+                />
+                <TextArea
+                    divId={`div-${this.props.id}`}
+                    id={this.props.id}
+                    value={this.props.degree}
+                    placeholder='Write some details about'
+                    name='About'
+                    onChange={(e) => this.props.onChange(e)}
+                />
+
+                ADD buttons to add and remove education 
             </div>
         )
     }

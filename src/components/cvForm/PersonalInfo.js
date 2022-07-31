@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import TextInput from './TextInput';
+import TextArea from './TextArea';
 
 class PersonalInfo extends Component {
     constructor(props) {
@@ -11,25 +13,46 @@ class PersonalInfo extends Component {
     render() {
         return (
             <div className="Personal-Info">
-                <div className='Title'>Personal Info</div>
-                <form className='pInfoForm'>
-                 <div>
-                    <label htmlFor='name'>Name</label>
-                    <input type='text' id='name' placeholder="Full name"/>
-                 </div>  
-                 <div>  
-                    <label htmlFor='email'>email </label>
-                    <input type='text' id='email' placeholder="email"/>
-                 </div>
-                 <div>
-                    <label htmlFor='addres'>addres</label>
-                    <input type='text' id='addres' placeholder="State, Country"/>
-                 </div>
-                 <div>
-                    <label htmlFor='bio'>About</label>
-                    <input type='text' id='bio' placeholder="Quick resume about you" maxLength='700'/>
-                 </div>
-                </form>
+                <TextInput
+                    divId={`div-${this.props.id}`}
+                    id={this.props.id}
+                    value={this.props.degree}
+                    placeholder='Name'
+                    name='Name'
+                    onChange={(e) => this.props.onChange(e)}
+                />
+                <TextInput
+                    divId={`div-${this.props.id}`}
+                    id={this.props.id}
+                    value={this.props.degree}
+                    placeholder='Email'
+                    name='Email'
+                    onChange={(e) => this.props.onChange(e)}
+                />
+                <TextInput
+                   divId={`div-${this.props.id}`}
+                   id={this.props.id}
+                   value={this.props.degree}
+                   placeholder='State, Country'
+                   name='Address'
+                   onChange={(e) => this.props.onChange(e)}
+                />
+                <TextInput
+                    divId={`div-${this.props.id}`}
+                    id={this.props.id}
+                    value={this.props.degree}
+                    placeholder='Most relevant social media link'
+                    name='Social Media'
+                    onChange={(e) => this.props.onChange(e)}
+                />
+                <TextArea
+                    divId={`div-${this.props.id}`}
+                    id={this.props.id}
+                    value={this.props.degree}
+                    placeholder='Write about yourself'
+                    name='Quick Bio'
+                    onChange={(e) => this.props.onChange(e)}
+                />
             </div>
         )
     }   
