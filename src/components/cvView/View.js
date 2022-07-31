@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class InfoRender extends Component {
+class View extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,4 +17,4 @@ class InfoRender extends Component {
     }
 }
 
-export default InfoRender
+export default View

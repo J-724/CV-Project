@@ -1,6 +1,6 @@
 import React from "react";
-import CVBuilder from "./components/cvBuilder/Bundler.js";
-import InfoRender from "./components/cvRender/InfoRender.js";
+import Form from "./components/cvForm/Form.js";
+import View from "./components/cvView/View.js";
 
 class App extends React.Component {
   
@@ -10,8 +10,8 @@ class App extends React.Component {
     render() {
     return (
       <div>
-        <CVBuilder />
-        <InfoRender />
+        <Form />
+        <View />
       </div>
     );
   }

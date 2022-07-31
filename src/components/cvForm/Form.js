@@ -3,7 +3,7 @@ import Education from "./Education.js";
 import Experience from "./Experience.js";
 import PersonalInfo from "./PersonalInfo.js";
 
-class CVBuilder extends Component {
+class Form extends Component {
   render() {
     return (
       <div className="builder">
@@ -15,4 +15,4 @@ class CVBuilder extends Component {
   }
 }
 
-export default CVBuilder
+export default Form;
