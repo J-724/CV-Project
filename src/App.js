@@ -1,28 +1,53 @@
 import React from "react";
 import Form from "./components/cvForm/Form.js";
 import View from "./components/cvView/View.js";
+import { PersonalInfo, Education, Experience} from "./components/cvForm/ObjTemplates.js";
+import uniqid from "uniqid";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      personalInfo: [],
+      personalInfo: [
+        {
+          ...PersonalInfo,
+        }, 
+      ],
+      education: [
+        {
+          ...Education,
+
+        }
+      ],
+      workExperience:[
+        {
+          ...Experience,
+        }
+      ],
 
     }
-    this.onChange = this.onChange.bind(this);
+    this.ChangePersonalInfo = this.ChangePersonalInfo.bind(this);
   }
   
-  onChange = (e) => {
-    this.setState ({
-      personalInfo: 'change!'
-    });
+  ChangePersonalInfo = (e) => {
+    const { name, value } = e.target;
+		this.setState({
+			personal: {
+				...this.state.personal,
+				[name]: value,
+			},
+		});
+    console.log('Change !!!');
   }
   
   render() {
     return (
       <div>
         <Form 
-          onChange={this.onChange}
+          personalInfo={this.state.personalInfo}
+          education={this.state.education}
+          experience={this.state.experience}
+          ChangePersonalInfo={this.ChangePersonalInfo}
         />
         <View />
       </div>

@@ -4,16 +4,17 @@ import Experience from "./Experience.js";
 import PersonalInfo from "./PersonalInfo.js";
 
 class Form extends Component {
-  render(props) {
+  render() {
     return (
       <div className="builder">
         <fieldset>
           <legend>Personal Info</legend>
           <PersonalInfo
-            onChange={this.props.onChange}
+            personalInfo={this.props.personalInfo}
+            onChange={this.props.ChangePersonalInfo}
           />
         </fieldset>
-        <fieldset>
+        {/* <fieldset>
           <legend>Education</legend>
           <Education 
             onChange={this.props.onChange}
@@ -24,7 +25,7 @@ class Form extends Component {
           <Experience
             onChange={this.props.onChange}
           />
-        </fieldset>
+        </fieldset> */}
       </div>
     );
   }

@@ -19,7 +19,7 @@ class Experience extends Component {
                     value={this.props.degree}
                     placeholder='Position'
                     name='Position'
-                    onChange={(e) => this.props.onChange(e)}
+                    onChange={(e) => this.props.onChangePersonalInfo(e)}
                 />
                 <TextInput
                     divId={`div-${this.props.id}`}
@@ -27,7 +27,7 @@ class Experience extends Component {
                     value={this.props.degree}
                     placeholder='Company'
                     name='Company'
-                    onChange={(e) => this.props.onChange(e)}
+                    onChange={(e) => this.props.onChangePersonalInfo(e)}
                 />
                 <TextInput
                    divId={`div-${this.props.id}`}
@@ -35,7 +35,7 @@ class Experience extends Component {
                    value={this.props.degree}
                    placeholder='Start'
                    name='Start'
-                   onChange={(e) => this.props.onChange(e)}
+                   onChange={(e) => this.props.onChangePersonalInfo(e)}
                 />
                 <TextInput
                     divId={`div-${this.props.id}`}
@@ -43,7 +43,7 @@ class Experience extends Component {
                     value={this.props.degree}
                     placeholder='End'
                     name='End'
-                    onChange={(e) => this.props.onChange(e)}
+                    onChange={(e) => this.props.onChangePersonalInfo(e)}
                 />
                 <TextArea
                     divId={`div-${this.props.id}`}
@@ -51,7 +51,7 @@ class Experience extends Component {
                     value={this.props.degree}
                     placeholder='Write some details about'
                     name='About'
-                    onChange={(e) => this.props.onChange(e)}
+                    onChange={(e) => this.props.onChangePersonalInfo(e)}
                 />
 
                 ADD buttons to add and remove education 

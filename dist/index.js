@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/App.js":
@@ -8,6 +7,7 @@
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -16,7 +16,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_cvForm_Form_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/cvForm/Form.js */ "./src/components/cvForm/Form.js");
 /* harmony import */ var _components_cvView_View_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/cvView/View.js */ "./src/components/cvView/View.js");
+/* harmony import */ var _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/cvForm/ObjTemplates.js */ "./src/components/cvForm/ObjTemplates.js");
+/* harmony import */ var uniqid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! uniqid */ "./node_modules/uniqid/index.js");
+/* harmony import */ var uniqid__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(uniqid__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -44,6 +51,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -56,16 +65,24 @@ var App = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "onChange", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "ChangePersonalInfo", function (e) {
+      var _e$target = e.target,
+          name = _e$target.name,
+          value = _e$target.value;
+
       _this.setState({
-        personalInfo: 'change!'
+        personal: _objectSpread(_objectSpread({}, _this.state.personal), {}, _defineProperty({}, name, value))
       });
+
+      console.log('Change !!!');
     });
 
     _this.state = {
-      personalInfo: []
+      personalInfo: [_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.PersonalInfo)],
+      education: [_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.Education)],
+      workExperience: [_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.Experience)]
     };
-    _this.onChange = _this.onChange.bind(_assertThisInitialized(_this));
+    _this.ChangePersonalInfo = _this.ChangePersonalInfo.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -73,7 +90,10 @@ var App = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_cvForm_Form_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        onChange: this.onChange
+        personalInfo: this.state.personalInfo,
+        education: this.state.education,
+        experience: this.state.experience,
+        ChangePersonalInfo: this.ChangePersonalInfo
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_cvView_View_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
@@ -92,6 +112,7 @@ console.log("New run");
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -210,6 +231,7 @@ var Education = /*#__PURE__*/function (_Component) {
   \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -273,7 +295,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         placeholder: "Position",
         name: "Position",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this2.props.onChangePersonalInfo(e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
         divId: "div-".concat(this.props.id),
@@ -282,7 +304,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         placeholder: "Company",
         name: "Company",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this2.props.onChangePersonalInfo(e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
         divId: "div-".concat(this.props.id),
@@ -291,7 +313,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         placeholder: "Start",
         name: "Start",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this2.props.onChangePersonalInfo(e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
         divId: "div-".concat(this.props.id),
@@ -300,7 +322,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         placeholder: "End",
         name: "End",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this2.props.onChangePersonalInfo(e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextArea__WEBPACK_IMPORTED_MODULE_2__["default"], {
         divId: "div-".concat(this.props.id),
@@ -309,7 +331,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         placeholder: "Write some details about",
         name: "About",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this2.props.onChangePersonalInfo(e);
         }
       }), "ADD buttons to add and remove education");
     }
@@ -328,6 +350,7 @@ var Experience = /*#__PURE__*/function (_Component) {
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -377,15 +400,12 @@ var Form = /*#__PURE__*/function (_Component) {
 
   _createClass(Form, [{
     key: "render",
-    value: function render(props) {
+    value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "builder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Personal Info"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_PersonalInfo_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        onChange: this.props.onChange
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Education"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Education_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        onChange: this.props.onChange
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Experience"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Experience_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        onChange: this.props.onChange
+        personalInfo: this.props.personalInfo,
+        onChange: this.props.ChangePersonalInfo
       })));
     }
   }]);
@@ -397,12 +417,51 @@ var Form = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./src/components/cvForm/ObjTemplates.js":
+/*!***********************************************!*\
+  !*** ./src/components/cvForm/ObjTemplates.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Education": () => (/* binding */ Education),
+/* harmony export */   "Experience": () => (/* binding */ Experience),
+/* harmony export */   "PersonalInfo": () => (/* binding */ PersonalInfo)
+/* harmony export */ });
+var PersonalInfo = {
+  name: '',
+  email: '',
+  address: '',
+  socialMedia: '',
+  quickBio: ''
+};
+var Education = {
+  degree: '',
+  university: '',
+  start: '',
+  end: '',
+  about: ''
+};
+var Experience = {
+  position: '',
+  company: '',
+  start: '',
+  end: '',
+  about: ''
+};
+
+
+/***/ }),
+
 /***/ "./src/components/cvForm/PersonalInfo.js":
 /*!***********************************************!*\
   !*** ./src/components/cvForm/PersonalInfo.js ***!
   \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -442,67 +501,63 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(PersonalInfo);
 
-  function PersonalInfo(props) {
-    var _this;
-
+  function PersonalInfo() {
     _classCallCheck(this, PersonalInfo);
 
-    _this = _super.call(this, props);
-    _this.state = {};
-    return _this;
+    return _super.apply(this, arguments);
   }
 
   _createClass(PersonalInfo, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "Personal-Info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        divId: "divID_name",
+        id: "IDname",
+        value: this.props.personalInfo.name,
         placeholder: "Name",
         name: "Name",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this.props.onChange;
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        divId: "divID_email",
+        id: "IDemail",
+        value: this.props.personalInfo.email,
         placeholder: "Email",
         name: "Email",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this.props.onChange;
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        divId: "divID_address",
+        id: "IDaddress",
+        value: this.props.personalInfo.address,
         placeholder: "State, Country",
         name: "Address",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this.props.onChange;
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        divId: "divID_SMedia",
+        id: "IDSMedia",
+        value: this.props.personalInfo.socialMedia,
         placeholder: "Most relevant social media link",
         name: "Social Media",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this.props.onChange;
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextArea__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        divId: "divID_PIAbout",
+        id: "IDPIAbout",
+        value: this.props.personalInfo.quickBio,
         placeholder: "Write about yourself",
         name: "Quick Bio",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this.props.onChange;
         }
       }));
     }
@@ -521,6 +576,7 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
   \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -593,6 +649,7 @@ var TextArea = /*#__PURE__*/function (_React$Component) {
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -666,6 +723,7 @@ var TextInput = /*#__PURE__*/function (_React$Component) {
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -733,6 +791,7 @@ var View = /*#__PURE__*/function (_Component) {
   \*************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 /**
  * @license React
  * react-dom.development.js
@@ -30606,6 +30665,7 @@ if (
   \******************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 
 var m = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -30638,6 +30698,7 @@ if (false) {} else {
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 function checkDCE() {
@@ -30681,6 +30742,7 @@ if (false) {} else {
   \*****************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
+"use strict";
 /* module decorator */ module = __webpack_require__.nmd(module);
 /**
  * @license React
@@ -33431,6 +33493,7 @@ if (
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 if (false) {} else {
@@ -33446,6 +33509,7 @@ if (false) {} else {
   \*************************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 /**
  * @license React
  * scheduler.development.js
@@ -34090,10 +34154,51 @@ if (
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler.development.js */ "./node_modules/scheduler/cjs/scheduler.development.js");
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/uniqid/index.js":
+/*!**************************************!*\
+  !*** ./node_modules/uniqid/index.js ***!
+  \**************************************/
+/***/ ((module) => {
+
+/* 
+(The MIT License)
+Copyright (c) 2014-2021 Halász Ádám <adam@aimform.com>
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+//  Unique Hexatridecimal ID Generator
+// ================================================
+
+//  Dependencies
+// ================================================
+var pid = typeof process !== 'undefined' && process.pid ? process.pid.toString(36) : '' ;
+var address = '';
+if(false){ var i, networkInterfaces, mac, os; } 
+
+//  Exports
+// ================================================
+module.exports = module.exports["default"] = function(prefix, suffix){ return (prefix ? prefix : '') + address + pid + now().toString(36) + (suffix ? suffix : ''); }
+module.exports.process = function(prefix, suffix){ return (prefix ? prefix : '') + pid + now().toString(36) + (suffix ? suffix : ''); }
+module.exports.time    = function(prefix, suffix){ return (prefix ? prefix : '') + now().toString(36) + (suffix ? suffix : ''); }
+
+//  Helpers
+// ================================================
+function now(){
+    var time = Date.now();
+    var last = now.last || time;
+    return now.last = time > last ? time : last + 1;
 }
 
 
@@ -34180,8 +34285,9 @@ if (false) {} else {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
