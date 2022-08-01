@@ -22,6 +22,21 @@ class Form extends Component {
       )
     })
 
+    const experienceElements = this.props.experience.map( element => {
+      return (
+        <Experience
+          key={element.id}
+          id={element.id}
+          position={element.position}
+          company={element.company}
+          start={element.start}
+          end={element.end}
+          about={element.about}
+          onChange={this.props.ChangeExperience}
+        />
+      )
+    })
+
 
     return (
       <div className="builder">
@@ -35,17 +50,11 @@ class Form extends Component {
         <fieldset>
           <legend>Education</legend>
           {educationElements}
-          {/* <Education
-            education={this.props.education} 
-            onChange={this.props.ChangeEducation}
-          /> */}
         </fieldset>
-        {/* <fieldset>
+        <fieldset>
           <legend>Experience</legend>
-          <Experience
-            onChange={this.props.onChange}
-          />
-        </fieldset> */}
+          {experienceElements}
+        </fieldset>
       </div>
     );
   }

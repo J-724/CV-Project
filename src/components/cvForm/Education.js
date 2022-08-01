@@ -28,7 +28,7 @@ class Education extends Component {
                 <TextInput
                     id={`${this.props.id}`}
                     value={this.props.degree}
-                    placeholder='degree'
+                    placeholder='Degree'
                     name='degree'
                     onChange={(e) => this.props.onChange(this.props.id, e)}
                 />

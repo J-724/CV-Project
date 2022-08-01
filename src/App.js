@@ -18,16 +18,17 @@ class App extends React.Component {
           id: uniqid(),
         },
       ],
-      workExperience:[
+      experience:[
         {
           ...Experience,
+          id: uniqid(),
         }
       ],
 
     }
     this.ChangePersonalInfo = this.ChangePersonalInfo.bind(this);
     this.ChangeEducation = this.ChangeEducation.bind(this);
-    this.onChange = this.onChange.bind(this);
+    this.ChangeExperience = this.ChangeExperience.bind(this);
   }
   
   ChangePersonalInfo = (e) => {
@@ -60,10 +61,27 @@ class App extends React.Component {
                                   console.log(id+' id');
                                   console.log(this.state.education);
   }
-  
-  onChange = (category, id) => (event) => {
-    
+
+  ChangeExperience = (id) => (event) => {
+    const { name, value } = event.target;
+    const newExpInfo = this.state.experience.map(item => {
+      if ( item.id === id) {
+        return {
+          ...item,
+          [name]: value,
+        }
+      }
+      return item;
+    });
+    this.setState({
+      experience: newExpInfo
+    });
+                                  console.log('Experience Change !!!');
+                                  console.log(id+' id');
+                                  console.log(this.state.experience);
   }
+  
+ 
   
   render() {
     return (
@@ -74,6 +92,7 @@ class App extends React.Component {
           experience={this.state.experience}
           ChangePersonalInfo={this.ChangePersonalInfo}
           ChangeEducation={this.ChangeEducation}
+          ChangeExperience={this.ChangeExperience}
         />
         <View 
           personalInfo={this.state.personalInfo}

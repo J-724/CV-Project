@@ -102,8 +102,28 @@ var App = /*#__PURE__*/function (_React$Component) {
       };
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onChange", function (category, id) {
-      return function (event) {};
+    _defineProperty(_assertThisInitialized(_this), "ChangeExperience", function (id) {
+      return function (event) {
+        var _event$target2 = event.target,
+            name = _event$target2.name,
+            value = _event$target2.value;
+
+        var newExpInfo = _this.state.experience.map(function (item) {
+          if (item.id === id) {
+            return _objectSpread(_objectSpread({}, item), {}, _defineProperty({}, name, value));
+          }
+
+          return item;
+        });
+
+        _this.setState({
+          experience: newExpInfo
+        });
+
+        console.log('Experience Change !!!');
+        console.log(id + ' id');
+        console.log(_this.state.experience);
+      };
     });
 
     _this.state = {
@@ -111,11 +131,13 @@ var App = /*#__PURE__*/function (_React$Component) {
       education: [_objectSpread(_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.Education), {}, {
         id: uniqid__WEBPACK_IMPORTED_MODULE_4___default()()
       })],
-      workExperience: [_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.Experience)]
+      experience: [_objectSpread(_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.Experience), {}, {
+        id: uniqid__WEBPACK_IMPORTED_MODULE_4___default()()
+      })]
     };
     _this.ChangePersonalInfo = _this.ChangePersonalInfo.bind(_assertThisInitialized(_this));
     _this.ChangeEducation = _this.ChangeEducation.bind(_assertThisInitialized(_this));
-    _this.onChange = _this.onChange.bind(_assertThisInitialized(_this));
+    _this.ChangeExperience = _this.ChangeExperience.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -127,7 +149,8 @@ var App = /*#__PURE__*/function (_React$Component) {
         education: this.state.education,
         experience: this.state.experience,
         ChangePersonalInfo: this.ChangePersonalInfo,
-        ChangeEducation: this.ChangeEducation
+        ChangeEducation: this.ChangeEducation,
+        ChangeExperience: this.ChangeExperience
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_cvView_View_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
         personalInfo: this.state.personalInfo
       }));
@@ -221,7 +244,7 @@ var Education = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: "".concat(this.props.id),
         value: this.props.degree,
-        placeholder: "degree",
+        placeholder: "Degree",
         name: "degree",
         onChange: function onChange(e) {
           return _this2.props.onChange(_this2.props.id, e);
@@ -315,69 +338,60 @@ var Experience = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(Experience);
 
-  function Experience(props) {
-    var _this;
-
+  function Experience() {
     _classCallCheck(this, Experience);
 
-    _this = _super.call(this, props);
-    _this.state = {};
-    return _this;
+    return _super.apply(this, arguments);
   }
 
   _createClass(Experience, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "Experience"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        id: "".concat(this.props.id),
+        value: this.props.position,
         placeholder: "Position",
-        name: "Position",
+        name: "position",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this.props.onChange(_this.props.id, e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        id: "".concat(this.props.id),
+        value: this.props.company,
         placeholder: "Company",
-        name: "Company",
+        name: "company",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this.props.onChange(_this.props.id, e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        id: "".concat(this.props.id),
+        value: this.props.start,
         placeholder: "Start",
-        name: "Start",
+        name: "start",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this.props.onChange(_this.props.id, e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        id: "".concat(this.props.id),
+        value: this.props.end,
         placeholder: "End",
-        name: "End",
+        name: "end",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this.props.onChange(_this.props.id, e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextArea__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        id: "".concat(this.props.id),
+        value: this.props.about,
         placeholder: "Write some details about",
-        name: "About",
+        name: "about",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this.props.onChange(_this.props.id, e);
         }
-      }), "ADD buttons to add and remove education");
+      }), "ADD buttons to add and remove experience");
     }
   }]);
 
@@ -459,12 +473,24 @@ var Form = /*#__PURE__*/function (_Component) {
           onChange: _this.props.ChangeEducation
         });
       });
+      var experienceElements = this.props.experience.map(function (element) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Experience_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          key: element.id,
+          id: element.id,
+          position: element.position,
+          company: element.company,
+          start: element.start,
+          end: element.end,
+          about: element.about,
+          onChange: _this.props.ChangeExperience
+        });
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "builder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Personal Info"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_PersonalInfo_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
         personalInfo: this.props.personalInfo,
         onChange: this.props.ChangePersonalInfo
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Education"), educationElements));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Education"), educationElements), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Experience"), experienceElements));
     }
   }]);
 
