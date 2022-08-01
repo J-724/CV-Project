@@ -96,6 +96,8 @@ class App extends React.Component {
         />
         <View 
           personalInfo={this.state.personalInfo}
+          education={this.state.education}
+          experience={this.state.experience}
         />
       </div>
     );
