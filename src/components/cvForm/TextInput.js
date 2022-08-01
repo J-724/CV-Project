@@ -4,7 +4,7 @@ class TextInput extends React.Component {
   
   render() {
     return (
-      <div className="input-container" id={this.props.divId}>
+      <div className="input-container">
         <label htmlFor={this.props.id}>{this.props.name}</label>
         <input 
           type='text'
