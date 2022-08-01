@@ -8,16 +8,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      personalInfo: [
-        {
+      personalInfo:
+      {
           ...PersonalInfo,
-        }, 
-      ],
+      }, 
       education: [
         {
           ...Education,
-
-        }
+          id: uniqid(),
+        },
       ],
       workExperience:[
         {
@@ -27,17 +26,43 @@ class App extends React.Component {
 
     }
     this.ChangePersonalInfo = this.ChangePersonalInfo.bind(this);
+    this.ChangeEducation = this.ChangeEducation.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
   
   ChangePersonalInfo = (e) => {
     const { name, value } = e.target;
 		this.setState({
-			personal: {
-				...this.state.personal,
+			personalInfo: {
+				...this.state.personalInfo,
 				[name]: value,
 			},
 		});
-    console.log('Change !!!');
+                                  console.log('Personal Change !!!');
+                                  console.log(this.state.personalInfo);
+  }
+  
+  ChangeEducation = (id) => (event) => {
+    const { name, value } = event.target;
+    const newEduInfo = this.state.education.map(item => {
+      if ( item.id === id) {
+        return {
+          ...item,
+          [name]: value,
+        }
+      }
+      return item;
+    });
+    this.setState({
+      education: newEduInfo
+    });
+                                  console.log('Education Change !!!');
+                                  console.log(id+' id');
+                                  console.log(this.state.education);
+  }
+  
+  onChange = (category, id) => (event) => {
+    
   }
   
   render() {
@@ -48,8 +73,11 @@ class App extends React.Component {
           education={this.state.education}
           experience={this.state.experience}
           ChangePersonalInfo={this.ChangePersonalInfo}
+          ChangeEducation={this.ChangeEducation}
         />
-        <View />
+        <View 
+          personalInfo={this.state.personalInfo}
+        />
       </div>
     );
   }

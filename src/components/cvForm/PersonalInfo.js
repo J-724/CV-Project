@@ -5,22 +5,23 @@ import TextArea from './TextArea';
 class PersonalInfo extends Component {
 
     render() {
+        console.log(this.props.personalInfo.name + 'name');
         return (
             <div className="Personal-Info">
                 <TextInput
                     divId= 'divID_name'
                     id= 'IDname'
                     value={this.props.personalInfo.name}
-                    placeholder='Name'
-                    name='Name'
+                    placeholder='name'
+                    name='name'
                     onChange={(e) => this.props.onChange}
                 />
                 <TextInput
                     divId= 'divID_email'
                     id= 'IDemail'
                     value={this.props.personalInfo.email}
-                    placeholder='Email'
-                    name='Email'
+                    placeholder='email'
+                    name='email'
                     onChange={(e) => this.props.onChange}
                 />
                 <TextInput
@@ -28,7 +29,7 @@ class PersonalInfo extends Component {
                    id= 'IDaddress'
                    value={this.props.personalInfo.address}
                    placeholder='State, Country'
-                   name='Address'
+                   name='address'
                    onChange={(e) => this.props.onChange}
                 />
                 <TextInput
@@ -36,7 +37,7 @@ class PersonalInfo extends Component {
                     id= 'IDSMedia'
                     value={this.props.personalInfo.socialMedia}
                     placeholder='Most relevant social media link'
-                    name='Social Media'
+                    name='socialMedia'
                     onChange={(e) => this.props.onChange}
                 />
                 <TextArea
@@ -44,7 +45,7 @@ class PersonalInfo extends Component {
                     id= 'IDPIAbout'
                     value={this.props.personalInfo.quickBio}
                     placeholder='Write about yourself'
-                    name='Quick Bio'
+                    name='quickBio'
                     onChange={(e) => this.props.onChange}
                 />
             </div>

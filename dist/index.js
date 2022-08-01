@@ -71,18 +71,51 @@ var App = /*#__PURE__*/function (_React$Component) {
           value = _e$target.value;
 
       _this.setState({
-        personal: _objectSpread(_objectSpread({}, _this.state.personal), {}, _defineProperty({}, name, value))
+        personalInfo: _objectSpread(_objectSpread({}, _this.state.personalInfo), {}, _defineProperty({}, name, value))
       });
 
-      console.log('Change !!!');
+      console.log('Personal Change !!!');
+      console.log(_this.state.personalInfo);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "ChangeEducation", function (id) {
+      return function (event) {
+        var _event$target = event.target,
+            name = _event$target.name,
+            value = _event$target.value;
+
+        var newEduInfo = _this.state.education.map(function (item) {
+          if (item.id === id) {
+            return _objectSpread(_objectSpread({}, item), {}, _defineProperty({}, name, value));
+          }
+
+          return item;
+        });
+
+        _this.setState({
+          education: newEduInfo
+        });
+
+        console.log('Education Change !!!');
+        console.log(id + ' id');
+        console.log(_this.state.education);
+      };
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onChange", function (category, id) {
+      return function (event) {};
     });
 
     _this.state = {
-      personalInfo: [_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.PersonalInfo)],
-      education: [_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.Education)],
+      personalInfo: _objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.PersonalInfo),
+      education: [_objectSpread(_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.Education), {}, {
+        id: uniqid__WEBPACK_IMPORTED_MODULE_4___default()()
+      })],
       workExperience: [_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.Experience)]
     };
     _this.ChangePersonalInfo = _this.ChangePersonalInfo.bind(_assertThisInitialized(_this));
+    _this.ChangeEducation = _this.ChangeEducation.bind(_assertThisInitialized(_this));
+    _this.onChange = _this.onChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -93,8 +126,11 @@ var App = /*#__PURE__*/function (_React$Component) {
         personalInfo: this.state.personalInfo,
         education: this.state.education,
         experience: this.state.experience,
-        ChangePersonalInfo: this.ChangePersonalInfo
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_cvView_View_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+        ChangePersonalInfo: this.ChangePersonalInfo,
+        ChangeEducation: this.ChangeEducation
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_cvView_View_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        personalInfo: this.state.personalInfo
+      }));
     }
   }]);
 
@@ -158,61 +194,69 @@ var Education = /*#__PURE__*/function (_Component) {
     _classCallCheck(this, Education);
 
     _this = _super.call(this, props);
-    _this.state = {};
+    _this.id = _this.props.id;
     return _this;
   }
 
   _createClass(Education, [{
+    key: "setId",
+    value: function setId() {
+      return this.id;
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
+      // const {
+      //     degree,
+      //     university,
+      //     start,
+      //     end,
+      //     about,
+      // } = this.props.education;
+      console.log(this.id + ' Test edu');
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "Education"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
+        id: "".concat(this.props.id),
         value: this.props.degree,
-        placeholder: "Degree",
-        name: "Degree",
+        placeholder: "degree",
+        name: "degree",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this2.props.onChange(_this2.props.id, e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        id: "".concat(this.props.id, "-university"),
+        value: this.props.university,
         placeholder: "University",
-        name: "University",
+        name: "university",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this2.props.onChange(_this2.props.id, e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        id: "".concat(this.props.id, "-start"),
+        value: this.props.start,
         placeholder: "Start",
-        name: "Start",
+        name: "start",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this2.props.onChange(_this2.props.id, e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        id: "".concat(this.props.id, "-end"),
+        value: this.props.end,
         placeholder: "End",
-        name: "End",
+        name: "end",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this2.props.onChange(_this2.props.id, e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextArea__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        divId: "div-".concat(this.props.id),
-        id: this.props.id,
-        value: this.props.degree,
+        id: "".concat(this.props.id, "-about"),
+        value: this.props.about,
         placeholder: "Write some details about",
-        name: "About",
+        name: "about",
         onChange: function onChange(e) {
-          return _this2.props.onChange(e);
+          return _this2.props.onChange(_this2.props.id, e);
         }
       }), "ADD buttons to add and remove education");
     }
@@ -295,7 +339,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         placeholder: "Position",
         name: "Position",
         onChange: function onChange(e) {
-          return _this2.props.onChangePersonalInfo(e);
+          return _this2.props.onChange(e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
         divId: "div-".concat(this.props.id),
@@ -304,7 +348,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         placeholder: "Company",
         name: "Company",
         onChange: function onChange(e) {
-          return _this2.props.onChangePersonalInfo(e);
+          return _this2.props.onChange(e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
         divId: "div-".concat(this.props.id),
@@ -313,7 +357,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         placeholder: "Start",
         name: "Start",
         onChange: function onChange(e) {
-          return _this2.props.onChangePersonalInfo(e);
+          return _this2.props.onChange(e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
         divId: "div-".concat(this.props.id),
@@ -322,7 +366,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         placeholder: "End",
         name: "End",
         onChange: function onChange(e) {
-          return _this2.props.onChangePersonalInfo(e);
+          return _this2.props.onChange(e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextArea__WEBPACK_IMPORTED_MODULE_2__["default"], {
         divId: "div-".concat(this.props.id),
@@ -331,7 +375,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         placeholder: "Write some details about",
         name: "About",
         onChange: function onChange(e) {
-          return _this2.props.onChangePersonalInfo(e);
+          return _this2.props.onChange(e);
         }
       }), "ADD buttons to add and remove education");
     }
@@ -401,12 +445,26 @@ var Form = /*#__PURE__*/function (_Component) {
   _createClass(Form, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
+      var educationElements = this.props.education.map(function (element) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Education_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: element.id,
+          id: element.id,
+          degree: element.degree,
+          university: element.university,
+          start: element.start,
+          end: element.end,
+          about: element.about,
+          onChange: _this.props.ChangeEducation
+        });
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "builder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Personal Info"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_PersonalInfo_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
         personalInfo: this.props.personalInfo,
         onChange: this.props.ChangePersonalInfo
-      })));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Education"), educationElements));
     }
   }]);
 
@@ -512,14 +570,15 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this = this;
 
+      console.log(this.props.personalInfo.name + 'name');
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "Personal-Info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
         divId: "divID_name",
         id: "IDname",
         value: this.props.personalInfo.name,
-        placeholder: "Name",
-        name: "Name",
+        placeholder: "name",
+        name: "name",
         onChange: function onChange(e) {
           return _this.props.onChange;
         }
@@ -527,8 +586,8 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
         divId: "divID_email",
         id: "IDemail",
         value: this.props.personalInfo.email,
-        placeholder: "Email",
-        name: "Email",
+        placeholder: "email",
+        name: "email",
         onChange: function onChange(e) {
           return _this.props.onChange;
         }
@@ -537,7 +596,7 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
         id: "IDaddress",
         value: this.props.personalInfo.address,
         placeholder: "State, Country",
-        name: "Address",
+        name: "address",
         onChange: function onChange(e) {
           return _this.props.onChange;
         }
@@ -546,7 +605,7 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
         id: "IDSMedia",
         value: this.props.personalInfo.socialMedia,
         placeholder: "Most relevant social media link",
-        name: "Social Media",
+        name: "socialMedia",
         onChange: function onChange(e) {
           return _this.props.onChange;
         }
@@ -555,7 +614,7 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
         id: "IDPIAbout",
         value: this.props.personalInfo.quickBio,
         placeholder: "Write about yourself",
-        name: "Quick Bio",
+        name: "quickBio",
         onChange: function onChange(e) {
           return _this.props.onChange;
         }
@@ -759,14 +818,10 @@ var View = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(View);
 
-  function View(props) {
-    var _this;
-
+  function View() {
     _classCallCheck(this, View);
 
-    _this = _super.call(this, props);
-    _this.state = {};
-    return _this;
+    return _super.apply(this, arguments);
   }
 
   _createClass(View, [{
@@ -774,7 +829,7 @@ var View = /*#__PURE__*/function (_Component) {
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "InfoRender"
-      }, "Info render");
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, this.props.personalInfo.name, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), this.props.personalInfo.email, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), this.props.personalInfo.address, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), this.props.personalInfo.socialMedia, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), this.props.personalInfo.quickBio, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null)));
     }
   }]);
 
