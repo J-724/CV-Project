@@ -1,28 +1,12 @@
 import React, {Component} from 'react';
-import TextInput from './TextInput';
-import TextArea from './TextArea';
+import TextInput from './misc/TextInput.js';
+import TextArea from './misc/TextArea.js';
+import BtnsAddDel from './misc/BtnsAddDel.js';
 
 
 class Education extends Component {
-    constructor(props) {
-        super(props);
-        this.id = this.props.id;
-    }
-    
-    setId() {
-        return this.id;
-    }
-
     render() {
-        // const {
-        //     degree,
-        //     university,
-        //     start,
-        //     end,
-        //     about,
-        // } = this.props.education;
-        
-        console.log(this.id + ' Test edu')
+
         return (
             <div className="Education">
                 <TextInput
@@ -60,8 +44,11 @@ class Education extends Component {
                     name='about'
                     onChange={(e) => this.props.onChange(this.props.id, e)}
                 />
-
-                ADD buttons to add and remove education 
+                <BtnsAddDel
+                    id ={this.props.id}
+                    handleAdd={this.props.handleAdd}
+                    handleDelete={this.props.handleDelete}
+                />
             </div>
         )
     }

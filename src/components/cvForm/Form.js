@@ -5,7 +5,6 @@ import PersonalInfo from "./PersonalInfo.js";
 
 
 class Form extends Component {
-
   render() {
     const educationElements = this.props.education.map( element => {
       return (
@@ -18,9 +17,11 @@ class Form extends Component {
           end={element.end}
           about={element.about}
           onChange={this.props.ChangeEducation}
+          handleAdd={this.props.AddEducation}
+          handleDelete={this.props.DeleteEducation}
         />
       )
-    })
+    });
 
     const experienceElements = this.props.experience.map( element => {
       return (
@@ -33,6 +34,8 @@ class Form extends Component {
           end={element.end}
           about={element.about}
           onChange={this.props.ChangeExperience}
+          handleAdd={this.props.AddExperience}
+          handleDelete={this.props.DeleteExperience}
         />
       )
     })

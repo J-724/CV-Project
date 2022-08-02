@@ -29,6 +29,10 @@ class App extends React.Component {
     this.ChangePersonalInfo = this.ChangePersonalInfo.bind(this);
     this.ChangeEducation = this.ChangeEducation.bind(this);
     this.ChangeExperience = this.ChangeExperience.bind(this);
+    this.AddEducation = this.AddEducation.bind(this);
+    this.AddExperience = this.AddExperience.bind(this);
+    this.DeleteEducation = this.DeleteEducation.bind(this);
+    this.DeleteExperience = this.DeleteExperience.bind(this);
   }
   
   ChangePersonalInfo = (e) => {
@@ -57,9 +61,6 @@ class App extends React.Component {
     this.setState({
       education: newEduInfo
     });
-                                  console.log('Education Change !!!');
-                                  console.log(id+' id');
-                                  console.log(this.state.education);
   }
 
   ChangeExperience = (id) => (event) => {
@@ -76,23 +77,58 @@ class App extends React.Component {
     this.setState({
       experience: newExpInfo
     });
-                                  console.log('Experience Change !!!');
-                                  console.log(id+' id');
-                                  console.log(this.state.experience);
-  }
+  };
+
+  AddEducation = () => {
+    console.log('add education');
+    const newEduObject = {
+      ...Education,
+      id: uniqid(),
+    };
+    this.setState({
+      education: this.state.education.concat(newEduObject)
+    })
+    console.log(this.state.education+' added');
+  };
+
+  AddExperience = () => {
+
+  };
   
+  DeleteEducation = (id) => {
+    const newEduArray = this.state.education.
+      filter( 
+        (item) => item.id != id
+      ); 
+    this.setState({
+      education: newEduArray,
+    });
+    console.log(this.state.education+' delete');
+  };
+
+  DeleteExperience = () => (event) => {
+
+  };
  
   
   render() {
+    console.log(this.state.education);
     return (
       <div>
         <Form 
           personalInfo={this.state.personalInfo}
           education={this.state.education}
           experience={this.state.experience}
+          
           ChangePersonalInfo={this.ChangePersonalInfo}
           ChangeEducation={this.ChangeEducation}
           ChangeExperience={this.ChangeExperience}
+
+          AddEducation={this.AddEducation}
+          AddExperience={this.AddExperience}
+
+          DeleteEducation={this.DeleteEducation}
+          DeleteExperience={this.DeleteExperience}
         />
         <View 
           personalInfo={this.state.personalInfo}

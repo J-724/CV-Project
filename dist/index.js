@@ -95,10 +95,6 @@ var App = /*#__PURE__*/function (_React$Component) {
         _this.setState({
           education: newEduInfo
         });
-
-        console.log('Education Change !!!');
-        console.log(id + ' id');
-        console.log(_this.state.education);
       };
     });
 
@@ -119,11 +115,39 @@ var App = /*#__PURE__*/function (_React$Component) {
         _this.setState({
           experience: newExpInfo
         });
-
-        console.log('Experience Change !!!');
-        console.log(id + ' id');
-        console.log(_this.state.experience);
       };
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "AddEducation", function () {
+      console.log('add education');
+
+      var newEduObject = _objectSpread(_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.Education), {}, {
+        id: uniqid__WEBPACK_IMPORTED_MODULE_4___default()()
+      });
+
+      _this.setState({
+        education: _this.state.education.concat(newEduObject)
+      });
+
+      console.log(_this.state.education + ' added');
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "AddExperience", function () {});
+
+    _defineProperty(_assertThisInitialized(_this), "DeleteEducation", function (id) {
+      var newEduArray = _this.state.education.filter(function (item) {
+        return item.id != id;
+      });
+
+      _this.setState({
+        education: newEduArray
+      });
+
+      console.log(_this.state.education + ' delete');
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "DeleteExperience", function () {
+      return function (event) {};
     });
 
     _this.state = {
@@ -138,19 +162,28 @@ var App = /*#__PURE__*/function (_React$Component) {
     _this.ChangePersonalInfo = _this.ChangePersonalInfo.bind(_assertThisInitialized(_this));
     _this.ChangeEducation = _this.ChangeEducation.bind(_assertThisInitialized(_this));
     _this.ChangeExperience = _this.ChangeExperience.bind(_assertThisInitialized(_this));
+    _this.AddEducation = _this.AddEducation.bind(_assertThisInitialized(_this));
+    _this.AddExperience = _this.AddExperience.bind(_assertThisInitialized(_this));
+    _this.DeleteEducation = _this.DeleteEducation.bind(_assertThisInitialized(_this));
+    _this.DeleteExperience = _this.DeleteExperience.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(App, [{
     key: "render",
     value: function render() {
+      console.log(this.state.education);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_cvForm_Form_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         personalInfo: this.state.personalInfo,
         education: this.state.education,
         experience: this.state.experience,
         ChangePersonalInfo: this.ChangePersonalInfo,
         ChangeEducation: this.ChangeEducation,
-        ChangeExperience: this.ChangeExperience
+        ChangeExperience: this.ChangeExperience,
+        AddEducation: this.AddEducation,
+        AddExperience: this.AddExperience,
+        DeleteEducation: this.DeleteEducation,
+        DeleteExperience: this.DeleteExperience
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_cvView_View_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
         personalInfo: this.state.personalInfo,
         education: this.state.education,
@@ -180,8 +213,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _TextInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TextInput */ "./src/components/cvForm/TextInput.js");
-/* harmony import */ var _TextArea__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TextArea */ "./src/components/cvForm/TextArea.js");
+/* harmony import */ var _misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./misc/TextInput.js */ "./src/components/cvForm/misc/TextInput.js");
+/* harmony import */ var _misc_TextArea_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./misc/TextArea.js */ "./src/components/cvForm/misc/TextArea.js");
+/* harmony import */ var _misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./misc/BtnsAddDel.js */ "./src/components/cvForm/misc/BtnsAddDel.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -208,82 +242,70 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Education = /*#__PURE__*/function (_Component) {
   _inherits(Education, _Component);
 
   var _super = _createSuper(Education);
 
-  function Education(props) {
-    var _this;
-
+  function Education() {
     _classCallCheck(this, Education);
 
-    _this = _super.call(this, props);
-    _this.id = _this.props.id;
-    return _this;
+    return _super.apply(this, arguments);
   }
 
   _createClass(Education, [{
-    key: "setId",
-    value: function setId() {
-      return this.id;
-    }
-  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this = this;
 
-      // const {
-      //     degree,
-      //     university,
-      //     start,
-      //     end,
-      //     about,
-      // } = this.props.education;
-      console.log(this.id + ' Test edu');
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "Education"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: "".concat(this.props.id),
         value: this.props.degree,
         placeholder: "Degree",
         name: "degree",
         onChange: function onChange(e) {
-          return _this2.props.onChange(_this2.props.id, e);
+          return _this.props.onChange(_this.props.id, e);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: "".concat(this.props.id, "-university"),
         value: this.props.university,
         placeholder: "University",
         name: "university",
         onChange: function onChange(e) {
-          return _this2.props.onChange(_this2.props.id, e);
+          return _this.props.onChange(_this.props.id, e);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: "".concat(this.props.id, "-start"),
         value: this.props.start,
         placeholder: "Start",
         name: "start",
         onChange: function onChange(e) {
-          return _this2.props.onChange(_this2.props.id, e);
+          return _this.props.onChange(_this.props.id, e);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: "".concat(this.props.id, "-end"),
         value: this.props.end,
         placeholder: "End",
         name: "end",
         onChange: function onChange(e) {
-          return _this2.props.onChange(_this2.props.id, e);
+          return _this.props.onChange(_this.props.id, e);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextArea__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextArea_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
         id: "".concat(this.props.id, "-about"),
         value: this.props.about,
         placeholder: "Write some details about",
         name: "about",
         onChange: function onChange(e) {
-          return _this2.props.onChange(_this2.props.id, e);
+          return _this.props.onChange(_this.props.id, e);
         }
-      }), "ADD buttons to add and remove education");
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        id: this.props.id,
+        handleAdd: this.props.handleAdd,
+        handleDelete: this.props.handleDelete
+      }));
     }
   }]);
 
@@ -307,8 +329,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _TextInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TextInput */ "./src/components/cvForm/TextInput.js");
-/* harmony import */ var _TextArea__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TextArea */ "./src/components/cvForm/TextArea.js");
+/* harmony import */ var _misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./misc/TextInput.js */ "./src/components/cvForm/misc/TextInput.js");
+/* harmony import */ var _misc_TextArea_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./misc/TextArea.js */ "./src/components/cvForm/misc/TextArea.js");
+/* harmony import */ var _misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./misc/BtnsAddDel.js */ "./src/components/cvForm/misc/BtnsAddDel.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -335,6 +358,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Experience = /*#__PURE__*/function (_Component) {
   _inherits(Experience, _Component);
 
@@ -353,7 +377,7 @@ var Experience = /*#__PURE__*/function (_Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "Experience"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: "".concat(this.props.id),
         value: this.props.position,
         placeholder: "Position",
@@ -361,7 +385,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         onChange: function onChange(e) {
           return _this.props.onChange(_this.props.id, e);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: "".concat(this.props.id),
         value: this.props.company,
         placeholder: "Company",
@@ -369,7 +393,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         onChange: function onChange(e) {
           return _this.props.onChange(_this.props.id, e);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: "".concat(this.props.id),
         value: this.props.start,
         placeholder: "Start",
@@ -377,7 +401,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         onChange: function onChange(e) {
           return _this.props.onChange(_this.props.id, e);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: "".concat(this.props.id),
         value: this.props.end,
         placeholder: "End",
@@ -385,7 +409,7 @@ var Experience = /*#__PURE__*/function (_Component) {
         onChange: function onChange(e) {
           return _this.props.onChange(_this.props.id, e);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextArea__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextArea_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
         id: "".concat(this.props.id),
         value: this.props.about,
         placeholder: "Write some details about",
@@ -393,7 +417,11 @@ var Experience = /*#__PURE__*/function (_Component) {
         onChange: function onChange(e) {
           return _this.props.onChange(_this.props.id, e);
         }
-      }), "ADD buttons to add and remove experience");
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        id: this.props.id,
+        handleAdd: this.props.handleAdd,
+        handleDelete: this.props.handleDelete
+      }));
     }
   }]);
 
@@ -472,7 +500,9 @@ var Form = /*#__PURE__*/function (_Component) {
           start: element.start,
           end: element.end,
           about: element.about,
-          onChange: _this.props.ChangeEducation
+          onChange: _this.props.ChangeEducation,
+          handleAdd: _this.props.AddEducation,
+          handleDelete: _this.props.DeleteEducation
         });
       });
       var experienceElements = this.props.experience.map(function (element) {
@@ -484,7 +514,9 @@ var Form = /*#__PURE__*/function (_Component) {
           start: element.start,
           end: element.end,
           about: element.about,
-          onChange: _this.props.ChangeExperience
+          onChange: _this.props.ChangeExperience,
+          handleAdd: _this.props.AddExperience,
+          handleDelete: _this.props.DeleteExperience
         });
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -554,8 +586,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _TextInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TextInput */ "./src/components/cvForm/TextInput.js");
-/* harmony import */ var _TextArea__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TextArea */ "./src/components/cvForm/TextArea.js");
+/* harmony import */ var _misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./misc/TextInput.js */ "./src/components/cvForm/misc/TextInput.js");
+/* harmony import */ var _misc_TextArea_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./misc/TextArea.js */ "./src/components/cvForm/misc/TextArea.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -601,7 +633,7 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
       console.log(this.props.personalInfo.name + 'name');
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "Personal-Info"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         divId: "divID_name",
         id: "IDname",
         value: this.props.personalInfo.name,
@@ -610,7 +642,7 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
         onChange: function onChange(e) {
           return _this.props.onChange;
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         divId: "divID_email",
         id: "IDemail",
         value: this.props.personalInfo.email,
@@ -619,7 +651,7 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
         onChange: function onChange(e) {
           return _this.props.onChange;
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         divId: "divID_address",
         id: "IDaddress",
         value: this.props.personalInfo.address,
@@ -628,7 +660,7 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
         onChange: function onChange(e) {
           return _this.props.onChange;
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         divId: "divID_SMedia",
         id: "IDSMedia",
         value: this.props.personalInfo.socialMedia,
@@ -637,7 +669,7 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
         onChange: function onChange(e) {
           return _this.props.onChange;
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_TextArea__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextArea_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
         divId: "divID_PIAbout",
         id: "IDPIAbout",
         value: this.props.personalInfo.quickBio,
@@ -657,10 +689,86 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./src/components/cvForm/TextArea.js":
-/*!*******************************************!*\
-  !*** ./src/components/cvForm/TextArea.js ***!
-  \*******************************************/
+/***/ "./src/components/cvForm/misc/BtnsAddDel.js":
+/*!**************************************************!*\
+  !*** ./src/components/cvForm/misc/BtnsAddDel.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var AddDelButtons = /*#__PURE__*/function (_React$Component) {
+  _inherits(AddDelButtons, _React$Component);
+
+  var _super = _createSuper(AddDelButtons);
+
+  function AddDelButtons() {
+    _classCallCheck(this, AddDelButtons);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(AddDelButtons, [{
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+        className: "btn-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+        className: "add-btn",
+        onClick: function onClick() {
+          return _this.props.handleAdd();
+        }
+      }, "Add"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+        className: "del-btn",
+        onClick: function onClick() {
+          return _this.props.handleDelete(_this.props.id);
+        }
+      }, "Delete"));
+    }
+  }]);
+
+  return AddDelButtons;
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddDelButtons);
+
+/***/ }),
+
+/***/ "./src/components/cvForm/misc/TextArea.js":
+/*!************************************************!*\
+  !*** ./src/components/cvForm/misc/TextArea.js ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -729,10 +837,10 @@ var TextArea = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./src/components/cvForm/TextInput.js":
-/*!********************************************!*\
-  !*** ./src/components/cvForm/TextInput.js ***!
-  \********************************************/
+/***/ "./src/components/cvForm/misc/TextInput.js":
+/*!*************************************************!*\
+  !*** ./src/components/cvForm/misc/TextInput.js ***!
+  \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";

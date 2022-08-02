@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import TextInput from './TextInput';
-import TextArea from './TextArea';
+import TextInput from './misc/TextInput.js';
+import TextArea from './misc/TextArea.js';
+import BtnsAddDel from './misc/BtnsAddDel.js';
 
 class Experience extends Component {
 
@@ -42,8 +43,11 @@ class Experience extends Component {
                     name='about'
                     onChange={(e) => this.props.onChange(this.props.id, e)}
                 />
-
-                ADD buttons to add and remove experience
+                <BtnsAddDel
+                    id ={this.props.id}
+                    handleAdd={this.props.handleAdd}
+                    handleDelete={this.props.handleDelete}
+                />
             </div>
         )
     }
