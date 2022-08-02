@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import uniqid from 'uniqid';
+import Education from '../cvForm/Education';
 
 class View extends Component {
     render() {
@@ -15,12 +16,22 @@ class View extends Component {
             )
         });
 
-
-
+        const experienceElements = this.props.experience.map( element => {
+            return (
+                <React.Fragment key={element.id}>
+                    {element.position} <br/>
+                    {element.company} <br/>
+                    {element.start} <br/>
+                    {element.end} <br/>
+                    {element.about} <br/>
+                </React.Fragment>
+            )
+        });
 
         return (
             <div className="InfoRender">
                 <div>
+                    <div>Personal Info</div>
                     {this.props.personalInfo.name} <br/>
                     {this.props.personalInfo.email} <br/>
                     {this.props.personalInfo.address} <br/>
@@ -28,15 +39,12 @@ class View extends Component {
                     {this.props.personalInfo.quickBio} <br/>
                 </div>
                 <div>
+                    <div>Education</div>
                     {educationElements}
-                    {/* {this.props.education.degree} <br/>
-                    {this.props.education.university} <br/>
-                    {this.props.education.start} <br/>
-                    {this.props.education.end} <br/>
-                    {this.props.education.about} <br/> */}
                 </div>
                 <div>
-                    {/* {this.props.experience} */}
+                    <div>Experience</div>
+                    {experienceElements}
                 </div>
             </div>
         )
