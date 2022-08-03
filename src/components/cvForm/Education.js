@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TextInput from './misc/TextInput.js';
 import TextArea from './misc/TextArea.js';
-import BtnsAddDel from './misc/BtnsAddDel.js';
+import {AddButton, DelButton} from './misc/BtnsAddDel.js';
 
 
 class Education extends Component {
@@ -44,11 +44,13 @@ class Education extends Component {
                     name='about'
                     onChange={(e) => this.props.onChange(this.props.id, e)}
                 />
-                <BtnsAddDel
-                    id ={this.props.id}
-                    handleAdd={this.props.handleAdd}
-                    handleDelete={this.props.handleDelete}
-                />
+                <div className='btn-container'>
+                    <AddButton handleAdd={this.props.handleAdd}/>
+                    <DelButton
+                        id ={this.props.id}
+                        handleDelete={this.props.handleDelete}
+                    />
+                </div>
             </div>
         )
     }

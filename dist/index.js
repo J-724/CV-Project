@@ -311,11 +311,14 @@ var Education = /*#__PURE__*/function (_Component) {
         onChange: function onChange(e) {
           return _this.props.onChange(_this.props.id, e);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+        className: "btn-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.AddButton, {
+        handleAdd: this.props.handleAdd
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.DelButton, {
         id: this.props.id,
-        handleAdd: this.props.handleAdd,
         handleDelete: this.props.handleDelete
-      }));
+      })));
     }
   }]);
 
@@ -427,11 +430,14 @@ var Experience = /*#__PURE__*/function (_Component) {
         onChange: function onChange(e) {
           return _this.props.onChange(_this.props.id, e);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+        className: "btn-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.AddButton, {
+        handleAdd: this.props.handleAdd
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.DelButton, {
         id: this.props.id,
-        handleAdd: this.props.handleAdd,
         handleDelete: this.props.handleDelete
-      }));
+      })));
     }
   }]);
 
@@ -458,6 +464,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Education_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Education.js */ "./src/components/cvForm/Education.js");
 /* harmony import */ var _Experience_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Experience.js */ "./src/components/cvForm/Experience.js");
 /* harmony import */ var _PersonalInfo_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PersonalInfo.js */ "./src/components/cvForm/PersonalInfo.js");
+/* harmony import */ var _misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./misc/BtnsAddDel.js */ "./src/components/cvForm/misc/BtnsAddDel.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -479,6 +486,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -534,7 +542,11 @@ var Form = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Personal Info"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_PersonalInfo_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
         personalInfo: this.props.personalInfo,
         onChange: this.props.ChangePersonalInfo
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Education"), educationElements), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Experience"), experienceElements));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Education"), educationElements.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_4__.AddButton, {
+        handleAdd: this.props.AddEducation
+      }) : null, educationElements), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("fieldset", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("legend", null, "Experience"), experienceElements.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_4__.AddButton, {
+        handleAdd: this.props.AddExperience
+      }) : null, experienceElements));
     }
   }]);
 
@@ -707,7 +719,8 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "AddButton": () => (/* binding */ AddButton),
+/* harmony export */   "DelButton": () => (/* binding */ DelButton)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -735,18 +748,18 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var AddDelButtons = /*#__PURE__*/function (_React$Component) {
-  _inherits(AddDelButtons, _React$Component);
+var AddButton = /*#__PURE__*/function (_React$Component) {
+  _inherits(AddButton, _React$Component);
 
-  var _super = _createSuper(AddDelButtons);
+  var _super = _createSuper(AddButton);
 
-  function AddDelButtons() {
-    _classCallCheck(this, AddDelButtons);
+  function AddButton() {
+    _classCallCheck(this, AddButton);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(AddDelButtons, [{
+  _createClass(AddButton, [{
     key: "render",
     value: function render() {
       var _this = this;
@@ -758,19 +771,42 @@ var AddDelButtons = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this.props.handleAdd();
         }
-      }, "Add"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-        className: "del-btn",
-        onClick: function onClick() {
-          return _this.props.handleDelete(_this.props.id);
-        }
-      }, "Delete"));
+      }, "Add"));
     }
   }]);
 
-  return AddDelButtons;
+  return AddButton;
 }((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddDelButtons);
+var DelButton = /*#__PURE__*/function (_React$Component2) {
+  _inherits(DelButton, _React$Component2);
+
+  var _super2 = _createSuper(DelButton);
+
+  function DelButton() {
+    _classCallCheck(this, DelButton);
+
+    return _super2.apply(this, arguments);
+  }
+
+  _createClass(DelButton, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+        className: "del-btn",
+        onClick: function onClick() {
+          return _this2.props.handleDelete(_this2.props.id);
+        }
+      }, "Delete");
+    }
+  }]);
+
+  return DelButton;
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
+
+
 
 /***/ }),
 
@@ -832,7 +868,7 @@ var TextArea = /*#__PURE__*/function (_React$Component) {
       }, this.props.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("textarea", {
         id: this.props.id,
         value: this.props.value,
-        placeholder: this.props.label,
+        placeholder: this.props.placeholder,
         name: this.props.name,
         onChange: this.props.onChange()
       }));
@@ -905,7 +941,7 @@ var TextInput = /*#__PURE__*/function (_React$Component) {
         type: "text",
         id: this.props.id,
         value: this.props.value,
-        placeholder: this.props.label,
+        placeholder: this.props.placeholder,
         name: this.props.name,
         onChange: this.props.onChange()
       }));

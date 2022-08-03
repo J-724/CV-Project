@@ -9,7 +9,7 @@ class TextArea extends React.Component {
         <textarea
           id={this.props.id}
           value={this.props.value}
-          placeholder={this.props.label}
+          placeholder={this.props.placeholder}
           name={this.props.name}
           onChange={this.props.onChange()}
         />

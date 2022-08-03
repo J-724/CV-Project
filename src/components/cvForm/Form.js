@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Education from "./Education.js";
 import Experience from "./Experience.js";
 import PersonalInfo from "./PersonalInfo.js";
+import {AddButton} from "./misc/BtnsAddDel.js";
 
 
 class Form extends Component {
@@ -40,7 +41,6 @@ class Form extends Component {
       )
     })
 
-
     return (
       <div className="builder">
         <fieldset>
@@ -52,11 +52,21 @@ class Form extends Component {
         </fieldset>
         <fieldset>
           <legend>Education</legend>
-          {educationElements}
+            {
+              (educationElements.length === 0) 
+              ? <AddButton handleAdd={this.props.AddEducation}/>
+              : null
+            }
+            {educationElements}
         </fieldset>
-        <fieldset>
+        <fieldset>  
           <legend>Experience</legend>
-          {experienceElements}
+            {
+              (experienceElements.length === 0) 
+              ? <AddButton handleAdd={this.props.AddExperience}/>
+              : null
+            }
+            {experienceElements}
         </fieldset>
       </div>
     );

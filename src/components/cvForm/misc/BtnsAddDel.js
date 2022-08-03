@@ -1,6 +1,6 @@
 import React from "react";
 
-class AddDelButtons extends React.Component {
+class AddButton extends React.Component {
   render() {
     return (
       <div className='btn-container'>
@@ -9,16 +9,24 @@ class AddDelButtons extends React.Component {
         onClick={() => this.props.handleAdd()}
         >
             Add
-        </button>              
-        <button 
-          className='del-btn' 
-          onClick={() => this.props.handleDelete(this.props.id)}
-        >                
-            Delete
-        </button>                              
+        </button>                                           
       </div>  
     )             
   }
 }
 
-export default AddDelButtons;
+class DelButton extends React.Component {
+  render() {
+    return (
+      <button 
+          className='del-btn' 
+          onClick={() => this.props.handleDelete(this.props.id)}
+        >                
+            Delete
+        </button> 
+    )
+  }  
+}
+
+
+export { AddButton, DelButton };
