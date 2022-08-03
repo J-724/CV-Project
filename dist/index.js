@@ -73,9 +73,6 @@ var App = /*#__PURE__*/function (_React$Component) {
       _this.setState({
         personalInfo: _objectSpread(_objectSpread({}, _this.state.personalInfo), {}, _defineProperty({}, name, value))
       });
-
-      console.log('Personal Change !!!');
-      console.log(_this.state.personalInfo);
     });
 
     _defineProperty(_assertThisInitialized(_this), "ChangeEducation", function (id) {
@@ -142,8 +139,6 @@ var App = /*#__PURE__*/function (_React$Component) {
       _this.setState({
         experience: _this.state.experience.concat(newExpObject)
       });
-
-      console.log(_this.state.experience + ' added');
     });
 
     _defineProperty(_assertThisInitialized(_this), "DeleteEducation", function (id) {
@@ -154,8 +149,6 @@ var App = /*#__PURE__*/function (_React$Component) {
       _this.setState({
         education: newEduArray
       });
-
-      console.log(_this.state.education + ' delete');
     });
 
     _defineProperty(_assertThisInitialized(_this), "DeleteExperience", function (id) {
@@ -190,7 +183,6 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      console.log(this.state.education);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_cvForm_Form_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         personalInfo: this.state.personalInfo,
         education: this.state.education,
@@ -648,7 +640,6 @@ var PersonalInfo = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this = this;
 
-      console.log(this.props.personalInfo.name + 'name');
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "Personal-Info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {

@@ -43,8 +43,6 @@ class App extends React.Component {
 				[name]: value,
 			},
 		});
-                                  console.log('Personal Change !!!');
-                                  console.log(this.state.personalInfo);
   }
   
   ChangeEducation = (id) => (event) => {
@@ -98,9 +96,8 @@ class App extends React.Component {
       id: uniqid(),
     };
     this.setState({
-      experience: this.state.experience.concat(newExpObject)
+      experience  : this.state.experience.concat(newExpObject)
     })
-    console.log(this.state.experience+' added');
   };
   
   DeleteEducation = (id) => {
@@ -111,7 +108,6 @@ class App extends React.Component {
     this.setState({
       education: newEduArray,
     });
-    console.log(this.state.education+' delete');
   };
 
   DeleteExperience = (id) => {
@@ -126,7 +122,6 @@ class App extends React.Component {
  
   
   render() {
-    console.log(this.state.education);
     return (
       <div>
         <Form 

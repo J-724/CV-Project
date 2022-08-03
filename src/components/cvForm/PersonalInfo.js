@@ -5,7 +5,6 @@ import TextArea from './misc/TextArea.js';
 class PersonalInfo extends Component {
 
     render() {
-        console.log(this.props.personalInfo.name + 'name');
         return (
             <div className="Personal-Info">
                 <TextInput
