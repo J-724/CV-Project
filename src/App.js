@@ -92,7 +92,15 @@ class App extends React.Component {
   };
 
   AddExperience = () => {
-
+    console.log('add experience');
+    const newExpObject = {
+      ...Experience,
+      id: uniqid(),
+    };
+    this.setState({
+      experience: this.state.experience.concat(newExpObject)
+    })
+    console.log(this.state.experience+' added');
   };
   
   DeleteEducation = (id) => {
@@ -106,8 +114,14 @@ class App extends React.Component {
     console.log(this.state.education+' delete');
   };
 
-  DeleteExperience = () => (event) => {
-
+  DeleteExperience = (id) => {
+    const newEduArray = this.state.experience.
+      filter( 
+        (item) => item.id != id
+      ); 
+    this.setState({
+      experience: newEduArray,
+    });
   };
  
   

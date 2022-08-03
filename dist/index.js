@@ -132,7 +132,19 @@ var App = /*#__PURE__*/function (_React$Component) {
       console.log(_this.state.education + ' added');
     });
 
-    _defineProperty(_assertThisInitialized(_this), "AddExperience", function () {});
+    _defineProperty(_assertThisInitialized(_this), "AddExperience", function () {
+      console.log('add experience');
+
+      var newExpObject = _objectSpread(_objectSpread({}, _components_cvForm_ObjTemplates_js__WEBPACK_IMPORTED_MODULE_3__.Experience), {}, {
+        id: uniqid__WEBPACK_IMPORTED_MODULE_4___default()()
+      });
+
+      _this.setState({
+        experience: _this.state.experience.concat(newExpObject)
+      });
+
+      console.log(_this.state.experience + ' added');
+    });
 
     _defineProperty(_assertThisInitialized(_this), "DeleteEducation", function (id) {
       var newEduArray = _this.state.education.filter(function (item) {
@@ -146,8 +158,14 @@ var App = /*#__PURE__*/function (_React$Component) {
       console.log(_this.state.education + ' delete');
     });
 
-    _defineProperty(_assertThisInitialized(_this), "DeleteExperience", function () {
-      return function (event) {};
+    _defineProperty(_assertThisInitialized(_this), "DeleteExperience", function (id) {
+      var newEduArray = _this.state.experience.filter(function (item) {
+        return item.id != id;
+      });
+
+      _this.setState({
+        experience: newEduArray
+      });
     });
 
     _this.state = {
