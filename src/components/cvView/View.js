@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import uniqid from 'uniqid';
-import Education from '../cvForm/Education';
 
 class View extends Component {
     render() {
