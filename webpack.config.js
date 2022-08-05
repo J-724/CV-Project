@@ -11,14 +11,38 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
     clean: true,
-    // assetModuleFilename: '[name][ext]',
+  },
+  devServer: {
+    static: path.resolve(__dirname, 'dist'),
+    port: 8000,
+    hot: true,
   },
   devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.(s[ac]ss||css)$/,
-        use: [ MiniCssExtractPlugin.loader , 'css-loader', 'sass-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: () => [
+                  require('autoprefixer')
+                ]
+              }
+            }
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
       },
       {
         test: /\.js$/,

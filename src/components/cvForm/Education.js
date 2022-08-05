@@ -3,7 +3,6 @@ import TextInput from './misc/TextInput.js';
 import TextArea from './misc/TextArea.js';
 import {AddButton, DelButton} from './misc/BtnsAddDel.js';
 
-
 class Education extends Component {
     render() {
 
