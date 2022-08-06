@@ -42,7 +42,7 @@ class Form extends Component {
     })
 
     return (
-      <div className="builder">
+      <div className="builder col-6">
         <fieldset>
           <legend>Personal Info</legend>
           <PersonalInfo

@@ -27,7 +27,7 @@ class View extends Component {
         });
 
         return (
-            <div className="InfoRender">
+            <div className="InfoRender col-6">
                 <div>
                     <div>Personal Info</div>
                     {this.props.personalInfo.name} <br/>
