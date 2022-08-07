@@ -123,27 +123,35 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
-        <Form 
-          personalInfo={this.state.personalInfo}
-          education={this.state.education}
-          experience={this.state.experience}
-          
-          ChangePersonalInfo={this.ChangePersonalInfo}
-          ChangeEducation={this.ChangeEducation}
-          ChangeExperience={this.ChangeExperience}
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
+          <Form
+            personalInfo={this.state.personalInfo}
+            education={this.state.education}
+            experience={this.state.experience}
+            
+            ChangePersonalInfo={this.ChangePersonalInfo}
+            ChangeEducation={this.ChangeEducation}
+            ChangeExperience={this.ChangeExperience}
 
-          AddEducation={this.AddEducation}
-          AddExperience={this.AddExperience}
+            AddEducation={this.AddEducation}
+            AddExperience={this.AddExperience}
 
-          DeleteEducation={this.DeleteEducation}
-          DeleteExperience={this.DeleteExperience}
-        />
-        <View 
-          personalInfo={this.state.personalInfo}
-          education={this.state.education}
-          experience={this.state.experience}
-        />
+            DeleteEducation={this.DeleteEducation}
+            DeleteExperience={this.DeleteExperience}
+          />
+          </div>
+          <div className="col-6">
+          <View
+            className = "col-6"
+
+            personalInfo={this.state.personalInfo}
+            education={this.state.education}
+            experience={this.state.experience}
+          />
+          </div>
+        </div>
       </div>
     );
   }

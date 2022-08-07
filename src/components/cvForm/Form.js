@@ -42,14 +42,14 @@ class Form extends Component {
     })
 
     return (
-      <div className="builder col-6">
+      <div className="container">
         <fieldset>
           <legend>Personal Info</legend>
           <PersonalInfo
             personalInfo={this.props.personalInfo}
             onChange={this.props.ChangePersonalInfo}
           />
-        </fieldset>
+        </fieldset >
         <fieldset>
           <legend>Education</legend>
             {

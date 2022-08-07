@@ -19,7 +19,7 @@ class View extends Component {
                 <React.Fragment key={element.id}>
                     {element.position} <br/>
                     {element.company} <br/>
-                    {element.start} <br/>
+                    {element.start} <br/>   
                     {element.end} <br/>
                     {element.about} <br/>
                 </React.Fragment>
@@ -27,7 +27,7 @@ class View extends Component {
         });
 
         return (
-            <div className="InfoRender col-6">
+            <div className="InfoRender">
                 <div>
                     <div>Personal Info</div>
                     {this.props.personalInfo.name} <br/>
