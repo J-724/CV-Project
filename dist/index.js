@@ -3385,11 +3385,11 @@ var App = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "container"
+        className: "container-fluid"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "row"
+        className: "row  justify-content-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "col-6"
+        className: "col"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_cvForm_Form_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         personalInfo: this.state.personalInfo,
         education: this.state.education,
@@ -3402,9 +3402,8 @@ var App = /*#__PURE__*/function (_React$Component) {
         DeleteEducation: this.DeleteEducation,
         DeleteExperience: this.DeleteExperience
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "col-6"
+        className: "col"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_cvView_View_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        className: "col-6",
         personalInfo: this.state.personalInfo,
         education: this.state.education,
         experience: this.state.experience
@@ -4074,8 +4073,10 @@ var TextArea = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "input-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+        className: "form-label",
         htmlFor: this.props.id
-      }, this.props.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("textarea", {
+      }, this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("textarea", {
+        className: "form-control",
         id: this.props.id,
         value: this.props.value,
         placeholder: this.props.placeholder,
@@ -4144,10 +4145,12 @@ var TextInput = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "input-container"
+        className: "input-container mb-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+        className: "form-label",
         htmlFor: this.props.id
-      }, this.props.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+      }, this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+        className: "form-control",
         type: "text",
         id: this.props.id,
         value: this.props.value,

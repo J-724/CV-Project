@@ -123,9 +123,9 @@ class App extends React.Component {
   
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-6">
+      <div className="container-fluid">
+        <div className="row  justify-content-center">
+          <div className="col">
           <Form
             personalInfo={this.state.personalInfo}
             education={this.state.education}
@@ -142,10 +142,8 @@ class App extends React.Component {
             DeleteExperience={this.DeleteExperience}
           />
           </div>
-          <div className="col-6">
+          <div className="col">
           <View
-            className = "col-6"
-
             personalInfo={this.state.personalInfo}
             education={this.state.education}
             experience={this.state.experience}
