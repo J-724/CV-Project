@@ -7,7 +7,7 @@ class Education extends Component {
     render() {
 
         return (
-            <div className="Education">
+            <div className="Education" Style="margin-bottom: 9px">
                 <TextInput
                     id={`${this.props.id}`}
                     value={this.props.degree}
@@ -47,9 +47,9 @@ class Education extends Component {
                     <DelButton
                         id ={this.props.id}
                         handleDelete={this.props.handleDelete}
+
                     />
                     <AddButton handleAdd={this.props.handleAdd}/>
-
                 </div>
             </div>
         )

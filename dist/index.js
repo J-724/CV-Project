@@ -3479,7 +3479,8 @@ var Education = /*#__PURE__*/function (_Component) {
       var _this = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "Education"
+        className: "Education",
+        Style: "margin-bottom: 9px"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: "".concat(this.props.id),
         value: this.props.degree,
@@ -3598,7 +3599,8 @@ var Experience = /*#__PURE__*/function (_Component) {
       var _this = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "Experience"
+        className: "Experience",
+        Style: "margin-bottom: 9px"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_TextInput_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: "".concat(this.props.id),
         value: this.props.position,
@@ -3975,6 +3977,7 @@ var AddButton = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
         className: "btn btn-secondary col-auto",
+        Style: " margin-left: 15px ",
         onClick: function onClick() {
           return _this.props.handleAdd();
         }
@@ -4146,10 +4149,11 @@ var TextInput = /*#__PURE__*/function (_React$Component) {
         className: "input-group flex-nowrap mb-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
         className: "input-group-text",
-        Style: "min-width: 100px",
+        Style: " min-width: 100px, font-size: 12px ",
         htmlFor: this.props.id
       }, this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
         className: "form-control",
+        Style: " font-size: 12px ",
         type: "text",
         id: this.props.id,
         value: this.props.value,

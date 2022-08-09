@@ -7,7 +7,7 @@ class Experience extends Component {
 
     render() {
         return (
-            <div className="Experience">
+            <div className="Experience" Style="margin-bottom: 9px">
                 <TextInput
                     id={`${this.props.id}`}
                     value={this.props.position}

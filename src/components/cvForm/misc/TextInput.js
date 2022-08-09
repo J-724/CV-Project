@@ -7,13 +7,19 @@ class TextInput extends React.Component {
       <div className="input-group flex-nowrap mb-3">
         <label 
           className="input-group-text"
-          Style="min-width: 100px"
+          Style="
+            min-width: 100px,
+            font-size: 12px
+            "
           htmlFor={this.props.id}
         >{
           this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}
         </label>
         <input 
           className="form-control"
+          Style="
+            font-size: 12px
+          "
           type='text'
           id={this.props.id}
           value={this.props.value}
