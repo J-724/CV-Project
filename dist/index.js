@@ -4071,18 +4071,18 @@ var TextArea = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "input-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
-        className: "form-label",
-        htmlFor: this.props.id
-      }, this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("textarea", {
+        className: "form-floating mb-3"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("textarea", {
         className: "form-control",
+        Style: "height: 100px",
         id: this.props.id,
         value: this.props.value,
         placeholder: this.props.placeholder,
         name: this.props.name,
         onChange: this.props.onChange()
-      }));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+        htmlFor: this.props.id
+      }, this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)));
     }
   }]);
 
@@ -4145,9 +4145,10 @@ var TextInput = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "input-container mb-3"
+        className: "input-group flex-nowrap mb-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
-        className: "form-label",
+        className: "input-group-text",
+        Style: "min-width: 100px",
         htmlFor: this.props.id
       }, this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
         className: "form-control",
