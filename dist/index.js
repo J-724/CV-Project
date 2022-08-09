@@ -3521,12 +3521,12 @@ var Education = /*#__PURE__*/function (_Component) {
           return _this.props.onChange(_this.props.id, e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "btn-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.AddButton, {
-        handleAdd: this.props.handleAdd
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.DelButton, {
+        className: "btn-container d-grip d-flex justify-content-end"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.DelButton, {
         id: this.props.id,
         handleDelete: this.props.handleDelete
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.AddButton, {
+        handleAdd: this.props.handleAdd
       })));
     }
   }]);
@@ -3640,12 +3640,12 @@ var Experience = /*#__PURE__*/function (_Component) {
           return _this.props.onChange(_this.props.id, e);
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "btn-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.AddButton, {
-        handleAdd: this.props.handleAdd
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.DelButton, {
+        className: "btn-container d-grip d-flex justify-content-end"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.DelButton, {
         id: this.props.id,
         handleDelete: this.props.handleDelete
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_misc_BtnsAddDel_js__WEBPACK_IMPORTED_MODULE_3__.AddButton, {
+        handleAdd: this.props.handleAdd
       })));
     }
   }]);
@@ -3973,14 +3973,12 @@ var AddButton = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        className: "btn-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-        className: "add-btn",
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+        className: "btn btn-secondary col-auto",
         onClick: function onClick() {
           return _this.props.handleAdd();
         }
-      }, "Add"));
+      }, "Add");
     }
   }]);
 
@@ -4004,7 +4002,7 @@ var DelButton = /*#__PURE__*/function (_React$Component2) {
       var _this2 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-        className: "del-btn",
+        className: "btn btn-outline-secondary col-auto",
         onClick: function onClick() {
           return _this2.props.handleDelete(_this2.props.id);
         }

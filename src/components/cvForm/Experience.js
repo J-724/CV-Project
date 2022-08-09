@@ -43,12 +43,12 @@ class Experience extends Component {
                     name='about'
                     onChange={(e) => this.props.onChange(this.props.id, e)}
                 />
-                <div className='btn-container'>
-                    <AddButton handleAdd={this.props.handleAdd}/>
-                    <DelButton
-                        id ={this.props.id}
-                        handleDelete={this.props.handleDelete}
-                    />
+                <div className='btn-container d-grip d-flex justify-content-end'>
+                        <DelButton
+                            id ={this.props.id}
+                            handleDelete={this.props.handleDelete}
+                        />
+                        <AddButton handleAdd={this.props.handleAdd}/>
                 </div>
             </div>
         )
