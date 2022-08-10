@@ -3,57 +3,54 @@ import TextInput from './misc/TextInput.js';
 import TextArea from './misc/TextArea.js';
 import {AddButton, DelButton} from './misc/BtnsAddDel.js';
 
-class Education extends Component {
-    render() {
+function Education (props){
+    return (
+        <div className="Education" Style="margin-bottom: 9px">
+            <TextInput
+                id={`${props.id}`}
+                value={props.degree}
+                placeholder='Degree'
+                name='degree'
+                onChange={(e) => props.onChange(props.id, e)}
+            />
+            <TextInput
+                id={`${props.id}-university`}
+                value={props.university}
+                placeholder='University'
+                name='university'
+                onChange={(e) => props.onChange(props.id, e)}
+            />
+            <TextInput
+               id={`${props.id}-start`}
+               value={props.start}
+               placeholder='Start'
+               name='start'
+               onChange={(e) => props.onChange(props.id, e)}
+            />
+            <TextInput 
+                id={`${props.id}-end`}
+                value={props.end}
+                placeholder='End'
+                name='end'
+                onChange={(e) => props.onChange(props.id, e)}
+            />
+            <TextArea
+                id={`${props.id}-about`}
+                value={props.about}
+                placeholder='Write some details about'
+                name='about'
+                onChange={(e) => props.onChange(props.id, e)}
+            />
+            <div className='btn-container d-grip d-flex justify-content-end'>
+                <DelButton
+                    id ={props.id}
+                    handleDelete={props.handleDelete}
 
-        return (
-            <div className="Education" Style="margin-bottom: 9px">
-                <TextInput
-                    id={`${this.props.id}`}
-                    value={this.props.degree}
-                    placeholder='Degree'
-                    name='degree'
-                    onChange={(e) => this.props.onChange(this.props.id, e)}
                 />
-                <TextInput
-                    id={`${this.props.id}-university`}
-                    value={this.props.university}
-                    placeholder='University'
-                    name='university'
-                    onChange={(e) => this.props.onChange(this.props.id, e)}
-                />
-                <TextInput
-                   id={`${this.props.id}-start`}
-                   value={this.props.start}
-                   placeholder='Start'
-                   name='start'
-                   onChange={(e) => this.props.onChange(this.props.id, e)}
-                />
-                <TextInput 
-                    id={`${this.props.id}-end`}
-                    value={this.props.end}
-                    placeholder='End'
-                    name='end'
-                    onChange={(e) => this.props.onChange(this.props.id, e)}
-                />
-                <TextArea
-                    id={`${this.props.id}-about`}
-                    value={this.props.about}
-                    placeholder='Write some details about'
-                    name='about'
-                    onChange={(e) => this.props.onChange(this.props.id, e)}
-                />
-                <div className='btn-container d-grip d-flex justify-content-end'>
-                    <DelButton
-                        id ={this.props.id}
-                        handleDelete={this.props.handleDelete}
-
-                    />
-                    <AddButton handleAdd={this.props.handleAdd}/>
-                </div>
+                <AddButton handleAdd={props.handleAdd}/>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Education;
