@@ -5,9 +5,7 @@ class AddButton extends React.Component {
     return (
       <button 
       className='btn btn-secondary col-auto'
-      Style="
-        margin-left: 15px
-        " 
+      Style="margin-left: 5px" 
       onClick={() => this.props.handleAdd()}
       >
           Add
